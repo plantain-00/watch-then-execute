@@ -44,9 +44,8 @@ async function executeCommandLine() {
         subProcess = childProcess.exec(script, (error, stdout, stderr) => {
             subProcess = undefined;
         });
-        subProcess.stdout.on("data", chunk => {
-            printInConsole(chunk);
-        });
+        subProcess.stdout.pipe(process.stdout);
+        subProcess.stderr.pipe(process.stderr);
     }, 500);
 
     chokidar.watch(inputFiles).on("all", (type: string, file: string) => {
@@ -57,19 +56,9 @@ async function executeCommandLine() {
     });
 }
 
-try {
-    executeCommandLine().then(() => {
-        printInConsole("success.");
-    }, error => {
-        if (error.stdout) {
-            printInConsole(error.stdout);
-            process.exit(error.status);
-        } else {
-            printInConsole(error);
-            process.exit(1);
-        }
-    });
-} catch (error) {
+executeCommandLine().then(() => {
+    printInConsole("watch then execute success.");
+}, error => {
     if (error.stdout) {
         printInConsole(error.stdout);
         process.exit(error.status);
@@ -77,4 +66,4 @@ try {
         printInConsole(error);
         process.exit(1);
     }
-}
+});
