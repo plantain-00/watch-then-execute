@@ -1,7 +1,7 @@
 import * as minimist from "minimist";
 import * as chokidar from "chokidar";
 import * as minimatch from "minimatch";
-import * as debounce from "lodash.debounce";
+import debounce = require("lodash.debounce");
 import * as childProcess from "child_process";
 import * as packageJson from "../package.json";
 

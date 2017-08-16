@@ -5,5 +5,4 @@ declare module "*.json" {
 declare module "lodash.debounce" {
     function debounce(func: () => void, wait?: number): () => void;
     export = debounce;
-    namespace debounce { }
 }
