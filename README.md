@@ -20,4 +20,4 @@ A CLI tool to execute script after source file changes.
 
 `no-unused-export "src/*.ts" --exclude "src/*.d.ts" --script "npm run build`
 
-multiple `exclude`s can be seperated by `,`
+`--exclude`can be repeatable

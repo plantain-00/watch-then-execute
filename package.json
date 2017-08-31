@@ -1,6 +1,6 @@
 {
   "name": "watch-then-execute",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI tool to execute script after source file changes.",
   "main": "index.js",
   "dependencies": {

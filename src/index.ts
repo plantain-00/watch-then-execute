@@ -28,8 +28,15 @@ async function executeCommandLine() {
         throw new Error("expect a path");
     }
 
-    const excludeFilesString: string | undefined = argv.e || argv.exclude;
-    const excludeFiles = excludeFilesString ? excludeFilesString.split(",") : [];
+    const exclude: string | string[] = argv.e || argv.exclude;
+    let excludeFiles: string[] = [];
+    if (Array.isArray(exclude)) {
+        for (const e of exclude) {
+            excludeFiles = excludeFiles.concat(e.split(","));
+        }
+    } else if (exclude) {
+        excludeFiles = excludeFiles.concat(exclude.split(","));
+    }
 
     const script = argv.script;
     if (!script) {
