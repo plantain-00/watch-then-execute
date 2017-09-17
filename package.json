@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@types/chokidar": "1.7.2",
-    "@types/jasmine": "2.5.54",
+    "@types/jasmine": "2.6.0",
     "@types/minimatch": "3.0.1",
     "@types/minimist": "1.2.0",
     "@types/node": "8.0.28",
@@ -19,7 +19,7 @@
     "clean-scripts": "1.2.6",
     "jasmine": "2.8.0",
     "no-unused-export": "1.2.6",
-    "rimraf": "2.6.1",
+    "rimraf": "2.6.2",
     "standard": "10.0.3",
     "tslint": "5.7.0",
     "typescript": "2.5.2"
