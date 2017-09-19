@@ -1,6 +1,5 @@
 import * as minimist from "minimist";
 import * as chokidar from "chokidar";
-import * as minimatch from "minimatch";
 import debounce = require("lodash.debounce");
 import * as childProcess from "child_process";
 import * as packageJson from "../package.json";
@@ -55,11 +54,9 @@ async function executeCommandLine() {
         subProcess.stderr.pipe(process.stderr);
     }, 500);
 
-    chokidar.watch(inputFiles).on("all", (type: string, file: string) => {
-        if (excludeFiles.every(excludeFile => !minimatch(file, excludeFile))) {
-            printInConsole(`Detecting: ${file}`);
-            debounced();
-        }
+    chokidar.watch(inputFiles, { ignored: excludeFiles }).on("all", (type: string, file: string) => {
+        printInConsole(`Detecting: ${file}`);
+        debounced();
     });
 }
 
