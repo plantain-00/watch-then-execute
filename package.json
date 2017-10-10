@@ -23,7 +23,7 @@
     "typescript": "2.5.3"
   },
   "scripts": {
-    "demoTest": "node dist/index.js \"src/index.ts\" --script \"npm run build\"",
+    "demo": "node dist/index.js \"src/index.ts\" --script \"npm run build\"",
     "build": "clean-scripts build",
     "lint": "clean-scripts lint",
     "test": "clean-scripts test",
