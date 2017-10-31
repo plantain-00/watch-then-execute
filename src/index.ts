@@ -1,8 +1,6 @@
 import * as minimist from "minimist";
-import * as chokidar from "chokidar";
-import debounce = require("lodash.debounce");
-import * as childProcess from "child_process";
 import * as packageJson from "../package.json";
+import { watch } from "./core";
 
 function printInConsole(message: any) {
     // tslint:disable-next-line:no-console
@@ -42,22 +40,7 @@ async function executeCommandLine() {
         throw new Error("expect a script");
     }
 
-    let subProcess: childProcess.ChildProcess | undefined;
-    const debounced = debounce(async () => {
-        if (subProcess) {
-            subProcess.kill();
-        }
-        subProcess = childProcess.exec(script, (error, stdout, stderr) => {
-            subProcess = undefined;
-        });
-        subProcess.stdout.pipe(process.stdout);
-        subProcess.stderr.pipe(process.stderr);
-    }, 500);
-
-    chokidar.watch(inputFiles, { ignored: excludeFiles }).on("all", (type: string, file: string) => {
-        printInConsole(`Detecting: ${file}`);
-        debounced();
-    });
+    watch(inputFiles, excludeFiles, script);
 }
 
 executeCommandLine().then(() => {

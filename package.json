@@ -1,8 +1,9 @@
 {
   "name": "watch-then-execute",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A CLI tool to execute script after source file changes.",
-  "main": "index.js",
+  "main": "dist/core.js",
+  "types": "dist/core.d.ts",
   "dependencies": {
     "chokidar": "1.7.0",
     "lodash.debounce": "4.0.8",
