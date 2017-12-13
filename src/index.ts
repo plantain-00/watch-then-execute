@@ -2,13 +2,8 @@ import * as minimist from "minimist";
 import * as packageJson from "../package.json";
 import { watch } from "./core";
 
-function printInConsole(message: any) {
-    // tslint:disable-next-line:no-console
-    console.log(message);
-}
-
 function showToolVersion() {
-    printInConsole(`Version: ${packageJson.version}`);
+    console.log(`Version: ${packageJson.version}`);
 }
 
 async function executeCommandLine() {
@@ -44,13 +39,17 @@ async function executeCommandLine() {
 }
 
 executeCommandLine().then(() => {
-    printInConsole("watch then execute success.");
+    console.log("watch then execute success.");
 }, error => {
     if (error.stdout) {
-        printInConsole(error.stdout);
+        console.log(error.stdout);
         process.exit(error.status);
     } else {
-        printInConsole(error);
+        if (error instanceof Error) {
+            console.log(error.message);
+        } else {
+            console.log(error);
+        }
         process.exit(1);
     }
 });

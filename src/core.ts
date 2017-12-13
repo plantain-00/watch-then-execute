@@ -2,11 +2,6 @@ import * as chokidar from "chokidar";
 import debounce = require("lodash.debounce");
 import * as childProcess from "child_process";
 
-function printInConsole(message: any) {
-    // tslint:disable-next-line:no-console
-    console.log(message);
-}
-
 /**
  * @public
  */
@@ -28,7 +23,7 @@ export function watch(inputFiles: string[], excludeFiles: string[], script: stri
     }, 500);
 
     chokidar.watch(inputFiles, { ignored: excludeFiles }).on("all", (type: string, file: string) => {
-        printInConsole(`Detecting: ${file}`);
+        console.log(`Detecting: ${file}`);
         debounced();
     });
 }
