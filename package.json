@@ -5,15 +5,15 @@
   "main": "dist/core.js",
   "types": "dist/core.d.ts",
   "dependencies": {
-    "chokidar": "1.7.0",
+    "chokidar": "2.0.0",
     "lodash.debounce": "4.0.8",
     "minimist": "1.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "5.2.6",
+    "@commitlint/cli": "5.2.8",
     "@commitlint/config-angular": "5.1.1",
     "@types/chokidar": "1.7.4",
-    "@types/jasmine": "2.8.2",
+    "@types/jasmine": "2.8.3",
     "@types/minimist": "1.2.0",
     "@types/node": "8.5.2",
     "clean-scripts": "1.7.0",
