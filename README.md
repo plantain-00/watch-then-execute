@@ -11,7 +11,7 @@ A CLI tool to execute script after source file changes.
 
 ## install
 
-`npm i watch-then-execute -g`
+`yarn global add watch-then-execute`
 
 ## usage
 
