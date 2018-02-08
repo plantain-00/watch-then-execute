@@ -1,5 +1,5 @@
 import * as chokidar from 'chokidar'
-import debounce = require('lodash.debounce')
+import debounce from 'lodash.debounce'
 import * as childProcess from 'child_process'
 
 /**
