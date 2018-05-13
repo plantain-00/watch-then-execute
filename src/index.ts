@@ -2,11 +2,11 @@ import minimist from 'minimist'
 import * as packageJson from '../package.json'
 import { watch } from './core'
 
-function showToolVersion () {
+function showToolVersion() {
   console.log(`Version: ${packageJson.version}`)
 }
 
-async function executeCommandLine () {
+async function executeCommandLine() {
   const argv = minimist(process.argv.slice(2), { '--': true })
 
   const showVersion = argv.v || argv.version

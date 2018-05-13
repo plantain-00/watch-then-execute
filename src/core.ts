@@ -5,7 +5,7 @@ import * as childProcess from 'child_process'
 /**
  * @public
  */
-export function watch (inputFiles: string[], excludeFiles: string[], script: string | (() => void)) {
+export function watch(inputFiles: string[], excludeFiles: string[], script: string | (() => void)) {
   let subProcess: childProcess.ChildProcess | undefined
   const debounced = debounce(() => {
     if (subProcess) {
