@@ -39,6 +39,9 @@
     "type": "git",
     "url": "git+https://github.com/plantain-00/watch-then-execute.git"
   },
+  "typeCoverage": {
+    "atLeast": 86
+  },
   "author": "York Yao",
   "license": "MIT",
   "bugs": {
