@@ -18,8 +18,12 @@ export function watch(inputFiles: string[], excludeFiles: string[], script: stri
         }
         subProcess = undefined
       })
-      subProcess.stdout.pipe(process.stdout)
-      subProcess.stderr.pipe(process.stderr)
+      if (subProcess.stdout) {
+        subProcess.stdout.pipe(process.stdout)
+      }
+      if (subProcess.stderr) {
+        subProcess.stderr.pipe(process.stderr)
+      }
     } else {
       script()
     }
