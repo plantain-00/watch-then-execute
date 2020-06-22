@@ -25,7 +25,7 @@
     "no-unused-export": "1.10.3",
     "rimraf": "3.0.2",
     "ts-node": "8.10.2",
-    "type-coverage": "2.7.2",
+    "type-coverage": "2.8.2",
     "typescript": "3.9.5"
   },
   "scripts": {
@@ -40,7 +40,7 @@
     "url": "git+https://github.com/plantain-00/watch-then-execute.git"
   },
   "typeCoverage": {
-    "atLeast": 86
+    "atLeast": 93.75
   },
   "author": "York Yao",
   "license": "MIT",

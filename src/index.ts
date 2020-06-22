@@ -6,12 +6,39 @@ function showToolVersion() {
   console.log(`Version: ${packageJson.version}`)
 }
 
+function showHelp() {
+  console.log(`Version ${packageJson.version}
+Syntax:   watch-then-execute [options] [file...]
+Examples: watch-then-execute "src/*.ts" --script "npm run build"
+          watch-then-execute "src/*.ts" --exclude "src/*.d.ts" --script "npm run build"
+Options:
+ -h, --help                                         Print this message.
+ -v, --version                                      Print the version
+ -e, --exclude                                      Exclude files, repeatable
+ --script                                           Executed script
+`)
+}
+
 async function executeCommandLine() {
-  const argv = minimist(process.argv.slice(2), { '--': true })
+  const argv = minimist(process.argv.slice(2), { '--': true }) as unknown as {
+    v?: unknown
+    version?: unknown
+    h?: unknown
+    help?: unknown
+    e: string | string[]
+    exclude: string | string[]
+    _: string[]
+    script: string
+  }
 
   const showVersion = argv.v || argv.version
   if (showVersion) {
     showToolVersion()
+    return
+  }
+
+  if (argv.h || argv.help) {
+    showHelp()
     return
   }
 
@@ -20,7 +47,7 @@ async function executeCommandLine() {
     throw new Error('expect a path')
   }
 
-  const exclude: string | string[] = argv.e || argv.exclude
+  const exclude = argv.e || argv.exclude
   let excludeFiles: string[] = []
   if (Array.isArray(exclude)) {
     for (const e of exclude) {

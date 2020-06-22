@@ -16,22 +16,26 @@ A CLI tool to execute script after source file changes.
 
 ## usage
 
-`no-unused-export "src/*.ts" --script "npm run build"`
+`watch-then-execute "src/*.ts" --script "npm run build"`
+
+## options
+
+key | description
+--- | ---
+-e,--exclude | exclude files, repeatable
+--script | executed script
+-h,--help | Print this message.
+-v,--version | Print the version
+
+## API
 
 ```ts
 import { watch } from "watch-then-execute";
 
 watch(["src/*.ts"], [], "npm run build");
+watch(["src/*.ts"], ["src/*.d.ts"], "npm run build");
 ```
 
 ### exclude files
 
-`no-unused-export "src/*.ts" --exclude "src/*.d.ts" --script "npm run build`
-
-`--exclude`can be repeatable
-
-```ts
-import { watch } from "watch-then-execute";
-
-watch(["src/*.ts"], ["src/*.d.ts"], "npm run build");
-```
+`watch-then-execute "src/*.ts" --exclude "src/*.d.ts" --script "npm run build"`
