@@ -51,5 +51,8 @@
   "homepage": "https://github.com/plantain-00/watch-then-execute#readme",
   "bin": {
     "watch-then-execute": "bin/watch-then-execute"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
